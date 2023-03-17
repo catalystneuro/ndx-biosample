@@ -1,8 +1,55 @@
 groups:
-- neurodata_type_def: TetrodeSeries
-  neurodata_type_inc: ElectricalSeries
-  doc: An extension of ElectricalSeries to include the tetrode ID for each time series.
+- neurodata_type_def: BioSample
+  neurodata_type_inc: LabMetaData
+  doc: Description of the sample that was studied.
   attributes:
-  - name: trode_id
-    dtype: int32
-    doc: The tetrode ID.
+  - name: sameAs
+    dtype: text
+    shape:
+    - null
+    doc: same as
+    required: false
+  - name: hasMember
+    dtype: text
+    shape:
+    - null
+    doc: has member
+    required: false
+  - name: SampleType
+    dtype: text
+    doc: Sample type
+  - name: AssayType
+    dtype: text
+    shape:
+    - null
+    doc: Assay type
+    required: false
+  - name: Anatomy
+    dtype: text
+    shape:
+    - null
+    doc: Anatomy
+    required: false
+  - name: wasDerivedFrom
+    dtype:
+      target_type: BioSample
+      reftype: object
+    shape:
+    - null
+    doc: Describes the hierarchy of sample derivation or aggregation.
+    required: false
+  - name: wasAttributedTo
+    dtype:
+      target_type: Subject
+      reftype: object
+    shape:
+    - null
+    doc: Participant(s) or Subject(s) associated with this sample.
+    required: false
+  datasets:
+  - name: wasDerivedFrom
+    dtype:
+      target_type: BioSample
+      reftype: object
+    doc: Describes the hierarchy of sample derivation or aggregation.
+    quantity: '?'

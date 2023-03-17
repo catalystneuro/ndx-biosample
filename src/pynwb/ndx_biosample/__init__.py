@@ -1,4 +1,5 @@
 import os
+
 from pynwb import load_namespaces, get_class
 
 # Set path of the namespace.yaml file to the expected install location
@@ -23,4 +24,5 @@ load_namespaces(ndx_biosample_specpath)
 
 # TODO: import your classes here or define your class using get_class to make
 # them accessible at the package level
-TetrodeSeries = get_class('TetrodeSeries', 'ndx-biosample')
+
+from .ndx_biosample import BioSample
