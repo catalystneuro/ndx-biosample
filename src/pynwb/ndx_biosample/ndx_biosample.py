@@ -65,7 +65,7 @@ class BioSample(LabMetaData):
             name="wasDerivedFrom",
             doc="Describes the hierarchy of sample derivation or aggregation.",
             default=None,
-            type="BioSample",
+            type=("data", "array_data", "BioSample"),
             shape=(None, ),
         ),
     )
